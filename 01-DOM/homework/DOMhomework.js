@@ -2,14 +2,14 @@
 // Tu codigo acá:
 
 var toDoItems = [];
-toDoItems.push(new ToDo('Tarea Prueba'));
+//toDoItems.push(new ToDo('Tarea Prueba'));
 
 
 // En la página 'index.html' hay un elemento span cuyo texto es 'Aplicación creada por:'.
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
-document.querySelector('#createdBy').innerHTML='Aplicación creada por Estefano Muller';
+document.querySelector('#createdBy').innerHTML +=' Estefano Muller';
 
 
 
@@ -35,7 +35,7 @@ function ToDo (description) {
 
 // Tu código acá:
 ToDo.prototype.completeToDo= function () {
-  this.complete = true;
+  this.complete = !this.complete;
 }
 
 
@@ -61,16 +61,32 @@ ToDo.prototype.completeToDo= function () {
 function buildToDo(todo, index) {
   // Tu código acá:
   var toDoShell = document.createElement('div');
+
+  var checkbox = document.createElement('input');
+
+  checkbox.setAttribute('type','checkbox');
+  checkbox.setAttribute('id',index);
+  checkbox.classList.add('completeCheckbox');
+
+  
+
+
   toDoShell.setAttribute('class', 'toDoShell');
+
 
   var toDoText = document.createElement('span');
   toDoText.innerHTML = todo.description;
-  toDoText.setAttribute('id',index);
+  //toDoText.setAttribute('id',index);
+
+
+  checkbox.addEventListener("click",completeToDo);
 
   if(todo.complete){
     toDoText.setAttribute('class','completeText');
+    checkbox.checked=true;
   }
   toDoShell.appendChild(toDoText);
+  toDoShell.appendChild(checkbox);
   return toDoShell;
 }
 
@@ -150,9 +166,10 @@ btn.addEventListener('click',addToDo);
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-   //const index = event.target.id;
+   const index = event.target.id;
   // Tu código acá:
-  
+  toDoItems[index].completeToDo();
+  displayToDos();
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
