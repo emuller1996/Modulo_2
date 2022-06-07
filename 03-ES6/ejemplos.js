@@ -127,7 +127,7 @@ function arrayWithLet(){
         console.log(j);
       }
     )
-  }
+  };
  
  //console.log("J después del for ",j)
 return arreglo;
@@ -152,6 +152,7 @@ array[2]()
 // m.set("hello", 42);
 // m.set(s, 34);
 // m.get(s) == 34;
+
 
 // Weak Maps
 var ws = new WeakSet();
