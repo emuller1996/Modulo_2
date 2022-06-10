@@ -1,12 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <title>HomeWork Ajax</title>
+
+
+  <style>
+    body {
+      background-color: #e5e3ff;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    img {
+      display: none
+    }
+
+    button {
+      background-color: #5656ff;
+      padding: 0.5rem;
+      color: white;
+      border-radius: 0.5rem;
+      border: 1px solid rgb(255, 255, 255)
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: white;
+      padding: 0.5rem;
+      color: #5656ff;
+      border-radius: 0.5rem;
+      border: 1px solid #5656ff;
+    }
+
+    input {
+      background-color: #c1c1ff;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border-bottom: 0.15rem solid #5656ff;
+    }
+
+    input:focus {
+      background-color: #c1c1ff;
+      border: 0.15rem solid #5656ff;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border-bottom: 0.15rem solid #5656ff;
+      outline: none;
+    }
+
+    table{
+      border: 0.2rem solid #5656ff;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+    }
+  </style>
 </head>
+
 <body>
   <button id='boton'>Ver Amigos</button>
   <ul id='lista'>
@@ -23,6 +77,35 @@
   <input id='inputDelete'></input>
   <button id='delete'>Delete</button>
   <span id='success'></span>
+
+
+  <hr>
+  <h4>Agregar Amigo</h4>
+  <form  id='form_add' action="" autocomplete="off" method="POST">
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td><input type="text" name="nombre" id="nombre"></td>
+      </tr>
+      <tr>
+        <td>Edad</td>
+        <td><input type="text" name="edad" id="edad"></td>
+      </tr>
+      <tr>
+        <td>Correo</td>
+        <td><input type="text" name="correo" id="correo"></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align:center">
+          <button type="submit">
+              Agregar
+          </button>
+        </td>
+      </tr>
+      
+    </table>
+  </form>
   <script src="index.js"></script>
 </body>
+
 </html>
