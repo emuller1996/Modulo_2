@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <div>
         <Card
+          key={Cairns.id}
           max={Cairns.main.temp_max}
           min={Cairns.main.temp_min}
           name={Cairns.name}

@@ -1,0 +1,12 @@
+.card_info{
+    display: flex;
+    justify-content: space-around;  
+    flex: wrap;
+}
+.btn_close{
+    background-color:#ff6a6a;
+    color: #fff;
+    border: none;
+    
+    
+}
