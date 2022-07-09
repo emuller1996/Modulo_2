@@ -5,32 +5,36 @@ import { increment, decrement } from '../actions';
 class Counter extends Component {
     // Extra Credit
     incrementIfOdd = () => {
-      //Implementar una función de incremento que sólo aumenta si el valor del contador es impar
+      if(this.props.count % 2 !== 0){
+        this.props.increment();
+      }else{
+        alert('No es Impart')
+      }
     };
     // Extra Credit
     incrementAsync = () => {
-        //  Implementar una función de incremento que aumenta después de esperar un segundo
+        setTimeout(this.props.increment,1000);
     };
 
     render() {
         // Completa las funciones onClick de los botones
         // Al hacer clic en estos botones, el recuento debe disminuir o aumentar en consecuencia
         return (
-            <p>
+            <p className="container mt-5">
                 Clickeado: {this.props.count} veces
-                <button onClick={() => {/* Completar */ }}>
+                <button className="btn btn-sm btn-success" onClick={() => {this.props.increment()}}>
                     + {/* Incremeta */}
                 </button>
-                <button onClick={() => {/* Completar */ }}>
+                <button className="btn btn-sm btn-danger" onClick={() => {this.props.decrement() }}>
                     -  {/* Decrementa */}
                 </button>
                  {/* Si quieres hacer los extra credit puede descomentar las lineas de abajo */}
-                {/* <button onClick={this.incrementIfOdd}>
+                <button className="btn btn-sm btn-primary" onClick={this.incrementIfOdd}>
                     incrementa si es impar
                 </button>
-                <button onClick={this.incrementAsync}>
+                <button className="btn btn-sm btn-secondary" onClick={this.incrementAsync}>
                     Incrementa despues de un segundos
-                </button>  */}
+                </button> 
             </p>
         );
     }
